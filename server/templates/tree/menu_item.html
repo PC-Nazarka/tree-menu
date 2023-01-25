@@ -1,0 +1,17 @@
+{% load draw_item %}
+
+<ul class="menu-item">
+    {% if item.children.all %}
+        <li><span class="caret">{{item.name}}</span>
+            <ul class="nested">
+            {% for subitem in item.children.all %}
+                <li><span class="caret">{{subitem.name}}</span>
+                    <ul class="nested">
+                        {% draw_item subitem %}
+                    </ul>
+                </li>
+            {% endfor %}
+            </ul>
+        </li>
+    {% endif%}
+</ul>

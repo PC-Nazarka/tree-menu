@@ -21,6 +21,14 @@ class MenuItem(models.Model):
         Menu,
         on_delete=models.CASCADE,
         related_name="items",
+        verbose_name="Меню",
+    )
+    parent = models.ForeignKey(
+        "self",
+        blank=True,
+        null=True,
+        on_delete=models.CASCADE,
+        related_name="children",
         verbose_name="Родительский элемент",
     )
     name = models.CharField(

@@ -9,8 +9,12 @@ DJANGO_APPS = [
     "django.forms",
 ]
 
+THIRD_PARTY = [
+    "django_extensions",
+]
+
 LOCAL_APPS = [
     "apps.tree.apps.TreeConfig",
 ]
 
-INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY + LOCAL_APPS

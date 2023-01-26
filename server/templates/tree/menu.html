@@ -1,10 +1,12 @@
 {% load draw_item %}
 
 <ul class="menu">
-    <li><span class="caret">{{menu.name}}</span> <a href="{% url 'menu-detail' menu.pk %}">To detail</a>
+    <li><span class="caret"><a id="link" href="{% url 'menu-detail' menu.pk %}">{{menu.name}}</a></span>
         <ul class="nested">
-            {% for item in menu.items.all %}
-                {% draw_item item %}
+            {% for item in items %}
+                {% if item.parent_id is none %}
+                    {% draw_item item.id items %}
+                {% endif %}
             {% endfor %}
         </ul>
     </li>

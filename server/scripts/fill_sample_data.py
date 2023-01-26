@@ -1,7 +1,7 @@
 from apps.tree.factories import MenuFactory, MenuItemFactory
 
 COUNT_MENUS = 5
-COUNT_MENU_ITEMS = 3
+COUNT_MENU_ITEMS = 5
 
 
 def run():
@@ -13,8 +13,14 @@ def run():
             size=COUNT_MENU_ITEMS,
         )
         for item in items:
-            MenuItemFactory.create_batch(
+            items1 = MenuItemFactory.create_batch(
                 menu=menu,
                 parent=item,
                 size=COUNT_MENU_ITEMS,
             )
+            for item1 in items1:
+                MenuItemFactory.create_batch(
+                    menu=menu,
+                    parent=item1,
+                    size=COUNT_MENU_ITEMS,
+                )

@@ -258,3 +258,5 @@ tree_menu/media/
 
 .pytest_cache/
 .ipython/
+.env
+.idea

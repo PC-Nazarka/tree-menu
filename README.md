@@ -2,25 +2,32 @@
 
 [Built with Cookiecutter DjangoRestFramework](https://github.com/PC-Nazarka/cookiecutter-django-rest-framework/)
 
-## Basic Commands
+## Для запуска проекта
 
-For using install some libs:
+Создайте ```.env``` файл в корневой папке проекта со следующими переменными:
+- DJANGO_SECRET_KEY
+- DJANGO_DEBUG
+- POSTGRES_HOST
+- POSTGRES_PORT
+- POSTGRES_DB
+- POSTGRES_USER
+- POSTGRES_PASSWORD
+
+После создания файла запустите проект с помощью этих команд
 
 ```bash
-pip install rich invoke
+docker-compose up --build -d
+docker-compose run django python manage.py migrate
 ```
 
-### Setting Up Your Users
+### Для создания супер пользователя
 
--   To create a **superuser account**, use this command:
+```bash
+docker-compose exec django python manage.py createsuperuser
+```
 
-        $ inv django.createsuperuser
-    By default have account with username admin, password admin, email admin@admin.com
+### Для удобства был написан скрипт для генерации данных
 
-#### Running tests with pytest
-
-    $ inv tests.pytest
-
-#### Running pinters - flake8, isort
-
-    $ inv linters.all
+```bash
+docker-compose run django python manage.py runscript fill_sample_data
+```

@@ -13,14 +13,8 @@ def run():
             size=COUNT_MENU_ITEMS,
         )
         for item in items:
-            items1 = MenuItemFactory.create_batch(
+            MenuItemFactory.create_batch(
                 menu=menu,
                 parent=item,
                 size=COUNT_MENU_ITEMS,
             )
-            for item1 in items1:
-                MenuItemFactory.create_batch(
-                    menu=menu,
-                    parent=item1,
-                    size=COUNT_MENU_ITEMS,
-                )

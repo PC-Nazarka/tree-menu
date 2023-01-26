@@ -9,6 +9,9 @@ class Menu(models.Model):
     )
 
     class Meta:
+        indexes = [
+            models.Index(fields=['name']),
+        ]
         verbose_name = "Меню"
         verbose_name_plural = "Меню"
 

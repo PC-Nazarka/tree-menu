@@ -7,7 +7,7 @@ register = template.Library()
 
 
 @register.inclusion_tag("tree/menu.html")
-def draw_menu(menu_name: str):
+def draw_menu(menu_name: str) -> dict:
     menu = get_object_or_404(
         Menu.objects.prefetch_related("items"),
         name=menu_name,

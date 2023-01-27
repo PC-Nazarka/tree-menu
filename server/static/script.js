@@ -20,27 +20,25 @@ function setActiveItem(queryParam) {
   }
 }
 
-const reg = /\/[\d+]\//
+const reg = /\/\d+\//
 const queryParam = "menuitem"
 let url = new URL(location);
 if (url.pathname.match(reg)) {
+  let toggleItems = document.getElementsByClassName("caret")
+  for (let i = 0; i < toggleItems.length; i++) {
+    toggleItems[i].addEventListener("click", function() {
+      changeNested(this)
+      if (this.dataset.itemId !== undefined) {
+        url.searchParams.set(queryParam, this.dataset.itemId)
+        location = url.href
+      }
+    })
+  }
   link = document.getElementById("link")
   text = link.innerText
   link.parentNode.textContent = text
   link.remove()
-}
-if (url.search.indexOf(queryParam) !== -1) {
-  setActiveItem(queryParam)
-}
-
-var toggler = document.getElementsByClassName("caret")
-
-for (let i = 0; i < toggler.length; i++) {
-  toggler[i].addEventListener("click", function() {
-    changeNested(this)
-    if (this.dataset.itemId !== undefined) {
-      url.searchParams.set(queryParam, this.dataset.itemId)
-      location = url.href
-    }
-  })
+  if (url.search.indexOf(queryParam) !== -1) {
+    setActiveItem(queryParam)
+  }
 }

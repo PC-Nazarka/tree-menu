@@ -31,3 +31,13 @@ docker-compose exec django python manage.py createsuperuser
 ```bash
 docker-compose run django python manage.py runscript fill_sample_data
 ```
+
+### Для выбора отображенных меню в параметрах запроса использовать параметр ```menu```, после которого прописать имена меню
+
+```http://0.0.0.0:8000/?menu=Меню1```
+
+### Для выбора активного пункта меню в параметрах запроса использовать параметр ```menuitem```, после которого прописать id активных пунктов
+
+Пример:
+
+```http://0.0.0.0:8000/1/?menuitem=1```

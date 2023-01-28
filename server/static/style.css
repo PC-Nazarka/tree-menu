@@ -3,12 +3,6 @@
   user-select: none;
 }
 
-.caret::before {
-  color: black;
-  display: inline-block;
-  margin-right: 6px;
-}
-
 .nested {
   display: none;
 }

@@ -26,6 +26,10 @@ docker-compose run django python manage.py migrate
 docker-compose exec django python manage.py createsuperuser
 ```
 
+### Ссылка на административную панель
+
+```http://0.0.0.0:8000/admin```
+
 ### Для удобства был написан скрипт для генерации данных
 
 ```bash
@@ -33,6 +37,9 @@ docker-compose run django python manage.py runscript fill_sample_data
 ```
 
 ### Для выбора отображенных меню в параметрах запроса использовать параметр ```menu```, после которого прописать имена меню
+
+
+Пример:
 
 ```http://0.0.0.0:8000/?menu=Меню1```
 
